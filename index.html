@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Verifikasi SPJ Digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f1f8f9;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00796b;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 24px;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #e0f2f1;
+      color: #00695c;
+    }
+
+    select {
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .status-box {
+      padding: 6px 10px;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .verified {
+      background-color: #c8e6c9;
+      color: #2e7d32;
+    }
+
+    .not-verified {
+      background-color: #ffcdd2;
+      color: #c62828;
+    }
+
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Verifikasi SPJ Digital</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Judul SPJ</th>
+        <th>Link Dokumen</th>
+        <th>Status Verifikasi</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>SPJ Sosialisasi 2025</td>
+        <td><a href="https://drive.google.com/file/d/16pdLjYuZNGB77pH_ubg87PdxrV5ib9E3/view?usp=sharing" target="_blank">Lihat Dokumen</a></td>
+        <td>
+          <select onchange="updateStatus(this)">
+            <option value="Belum Diverifikasi">Belum Diverifikasi</option>
+            <option value="Telah Diverifikasi">Telah Diverifikasi</option>
+          </select>
+        </td>
+        <td><span class="status-box not-verified">Belum Diverifikasi</span></td>
+      </tr>
+
+      <!-- Tambahkan baris SPJ baru di bawah ini jika perlu -->
+
+    </tbody>
+  </table>
+
+  <div class="footer">Status verifikasi ini tidak tersimpan permanen, hanya tampilan</div>
+
+  <script>
+    function updateStatus(selectElement) {
+      const statusText = selectElement.value;
+      const statusBox = selectElement.parentElement.nextElementSibling.querySelector('.status-box');
+      statusBox.textContent = statusText;
+
+      if (statusText === "Telah Diverifikasi") {
+        statusBox.className = "status-box verified";
+      } else {
+        statusBox.className = "status-box not-verified";
+      }
+    }
+  </script>
+</body>
+</html>
