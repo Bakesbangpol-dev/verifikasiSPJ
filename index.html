@@ -1,97 +1,80 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Data Publik Google Sheet</title>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard SPJ</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f4f8;
       margin: 0;
-      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
 
-    header {
-      background-color: #2c3e50;
-      padding: 20px;
+    .dashboard-container {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       text-align: center;
+      max-width: 500px;
+      width: 90%;
+    }
+
+    .dashboard-container h1 {
+      color: #2b2d42;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .dashboard-container p {
+      color: #6c757d;
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: #007bff;
       color: white;
-      font-size: 1.8em;
-      letter-spacing: 1px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    #table-container {
-      max-width: 95%;
-      margin: 40px auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      overflow-x: auto;
+    .btn:hover {
+      background: #0056b3;
     }
 
-    .google-visualization-table-th {
-      background-color: #2c3e50 !important;
-      color: white !important;
-      font-size: 14px;
-      font-weight: bold;
-    }
+    @media (max-width: 600px) {
+      .dashboard-container {
+        padding: 20px;
+      }
 
-    .google-visualization-table-td {
-      font-size: 13px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #888;
-      font-size: 0.9em;
+      .dashboard-container h1 {
+        font-size: 1.5rem;
+      }
     }
   </style>
-
-  <script type="text/javascript">
-    google.charts.load('current', {'packages':['table']});
-    google.charts.setOnLoadCallback(drawTable);
-
-    function drawTable() {
-      const query = new google.visualization.Query(
-        'https://docs.google.com/spreadsheets/d/e/2PACX-1vTTT_AzISasGeAtcCERsxyr_8xf9GSfkUR7Jxo-YMs2uwDutfgMe1lm1Lqi3s_rBgj98nI75zz7eron/gviz/tq?gid=0&headers=1'
-      );
-
-      query.send(function(response) {
-        if (response.isError()) {
-          document.getElementById('table-container').innerHTML =
-            '<p style="color:red;">Gagal memuat data: ' + response.getMessage() + '</p>';
-          return;
-        }
-
-        const data = response.getDataTable();
-        const table = new google.visualization.Table(document.getElementById('table-container'));
-        table.draw(data, {
-          showRowNumber: true,
-          width: '100%',
-          allowHtml: true
-        });
-      });
-    }
-  </script>
 </head>
 <body>
-
-  <header>
-    Data Publik dari Google Sheets
-  </header>
-
-  <div id="table-container">
-    <p>Memuat data...</p>
+  <div class="dashboard-container">
+    <h1>Dashboard SPJ</h1>
+    <p>Selamat datang di sistem monitoring SPJ berbasis Google Sheets. Silakan klik tombol di bawah untuk melihat data.</p>
+    <a class="btn" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTT_AzISasGeAtcCERsxyr_8xf9GSfkUR7Jxo-YMs2uwDutfgMe1lm1Lqi3s_rBgj98nI75zz7eron/pubhtml" target="_blank">
+      Lihat Data SPJ
+    </a>
   </div>
-
-  <footer>
-    &copy; 2025 | Dibuat dengan Google Sheets & Google Charts API
-  </footer>
-
 </body>
 </html>
