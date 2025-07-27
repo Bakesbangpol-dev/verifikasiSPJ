@@ -4,77 +4,153 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard SPJ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
-      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: #fff;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 20px 40px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
     }
 
-    .dashboard-container {
-      background: #ffffff;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    header h1 {
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    .hero {
       text-align: center;
-      max-width: 500px;
-      width: 90%;
+      padding: 80px 20px 40px;
     }
 
-    .dashboard-container h1 {
-      color: #2b2d42;
-      font-size: 2rem;
+    .hero h2 {
+      font-size: 36px;
       margin-bottom: 10px;
     }
 
-    .dashboard-container p {
-      color: #6c757d;
-      font-size: 1rem;
-      margin-bottom: 30px;
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 30px;
     }
 
-    .btn {
-      background: #007bff;
-      color: white;
-      padding: 12px 24px;
+    .btn-primary {
+      background-color: #fff;
+      color: #2575fc;
+      padding: 12px 25px;
+      font-weight: bold;
       border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 600;
+      border-radius: 8px;
+      font-size: 16px;
       cursor: pointer;
-      transition: background 0.3s ease;
       text-decoration: none;
-      display: inline-block;
+      transition: background 0.3s;
     }
 
-    .btn:hover {
-      background: #0056b3;
+    .btn-primary:hover {
+      background-color: #f1f1f1;
     }
 
-    @media (max-width: 600px) {
-      .dashboard-container {
-        padding: 20px;
-      }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 40px 80px;
+    }
 
-      .dashboard-container h1 {
-        font-size: 1.5rem;
-      }
+    .card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #e0e0e0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.15);
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <div class="dashboard-container">
-    <h1>Dashboard SPJ</h1>
-    <p>Selamat datang di sistem monitoring SPJ berbasis Google Sheets. Silakan klik tombol di bawah untuk melihat data.</p>
-    <a class="btn" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTT_AzISasGeAtcCERsxyr_8xf9GSfkUR7Jxo-YMs2uwDutfgMe1lm1Lqi3s_rBgj98nI75zz7eron/pubhtml" target="_blank">
-      Lihat Data SPJ
-    </a>
-  </div>
+  <header>
+    <h1>Sistem Informasi SPJ</h1>
+    <nav>
+      <a href="#">Beranda</a>
+      <a href="#">Tentang</a>
+      <a href="#">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Dashboard Monitoring SPJ</h2>
+    <p>Selamat datang! Sistem ini membantu Anda dalam memantau dan mengakses data pertanggungjawaban (SPJ) kegiatan secara transparan, cepat, dan terintegrasi.</p>
+    <a class="btn-primary" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTTT_AzISasGeAtcCERsxyr_8xf9GSfkUR7Jxo-YMs2uwDutfgMe1lm1Lqi3s_rBgj98nI75zz7eron/pubhtml" target="_blank">Lihat Data SPJ</a>
+  </section>
+
+  <section class="features">
+    <div class="card">
+      <h3>Rekap Otomatis</h3>
+      <p>Semua data SPJ direkap secara real-time langsung dari Google Sheets.</p>
+    </div>
+    <div class="card">
+      <h3>Akses Mudah</h3>
+      <p>Dapat diakses dari berbagai perangkat tanpa perlu instalasi tambahan.</p>
+    </div>
+    <div class="card">
+      <h3>Transparan</h3>
+      <p>Seluruh kegiatan tercatat secara terbuka dan akuntabel.</p>
+    </div>
+    <div class="card">
+      <h3>Dukungan Multi-user</h3>
+      <p>Bisa digunakan bersama tim dengan kontrol akses pada Google Sheets.</p>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Sistem Informasi SPJ | Dibuat oleh Delmi
+  </footer>
 </body>
 </html>
